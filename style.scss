@@ -1,0 +1,217 @@
+//Nia Manning
+//August 10th, 2025
+//Guided Inquiry 9
+
+$primary-color: #4CAF50;
+$secondary-color: #F44336;
+$bg-gradient-start: #97f1ba;
+$bg-gradient-end: #e8f5e2;
+$font-stack: 'System UI';
+$border-radius: 6px;
+$spacing: 1rem;
+
+
+//mixin
+@mixin gradient($color1, $color2){
+    background: linear-gradient(to right, $color1, $color2);
+}
+
+@mixin flex($direction: row, $justify: space-between, $align: center){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+//
+
+
+//base style
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 2rem;
+    @include gradient($bg-gradient-start, $bg-gradient-end);
+    min-height: 100vh;
+}
+
+h1,h2{
+    text-align: center;
+    color: $primary-color;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    margin-inline: auto;
+    background: white;
+    padding: $spacing;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+//form selection
+.section{
+    margin-bottom: 1rem;
+
+    h2{
+        margin-bottom: 0.5rem;
+    }
+
+    .input-group{
+        margin-bottom: 1rem;
+        
+        label{
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        input{
+            width: 98%;
+            padding: 0.5rem;
+            border-radius: $border-radius;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        select{
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: $border-radius;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+    }
+    .btn-transactions-group{
+        text-align: center;
+
+        button{
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: $border-radius;
+            background-color: $primary-color;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover{
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
+}
+
+// summary section
+
+.summary{
+    display: grid;
+    gap: 0.5rem;
+    text-align: center;
+    background: lighten($primary-color, 40%);
+    padding: 1rem;
+    border-radius: $border-radius;
+    margin-top: 1rem;
+
+    span{
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+}
+
+//table
+
+.budget-tble-container{
+    overflow-x:auto;
+    -webkit-overflow-scrolling: touch;
+     margin-top: 1rem;
+     width: 100%;
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: $border-radius;
+        overflow: hidden;
+        min-width: 520px;
+       
+        th, td{
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th{
+            background-color: $primary-color;
+            color: white;
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover{
+            background-color: #f1f1f1;
+        }
+
+        button{
+            background-color: $secondary-color;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.6rem;
+            border-radius: $border-radius;
+            cursor: pointer;
+
+            &:hover{
+                background-color: darken($secondary-color, 10%);
+            }
+        }
+    }
+}
+
+//clear button
+
+.btn-clear{
+    text-align: center;
+    margin-top: 1.5rem;
+
+    button{
+        background-color: #777;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        border-radius: $border-radius;
+        cursor: pointer;
+
+        &:hover{
+            background-color: darken(#777, 10%);
+        }
+    }
+}
+
+//responsiveness
+@media (min-wdth: 700px){
+    .section .input-group{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .section .btn-transactions-group{
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
+    .summary{
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+
+    input, select, button{
+        width: 100%;
+        margin-bottom: 0;
+    }
+}

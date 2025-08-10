@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "style.css">
+    <title>Manning: Budget Tracker</title>
+</head>
+<body>
+    <div class="tracker container">
+        <h1 class="title"> Stay Woke... Don't Go Broke.</h1>
+        
+    <!-- Income -->
+    <div class= "income section">
+        <h2> Monthly Income</h2>
+
+        <div class="income input-group"> 
+        <label for="income-description">Description:</label>
+        <input type= "text" id="income-description" placeholder="e.g. Salary"> <!--Income Description-->
+        </div>
+
+        <div class="income input-group">
+            <label for="income-amount">Amount ($): </label>
+            <input type="number" id="income-amount" placeholder="e.g. 10000">  <!--Income Amount, edge case-->
+        </div>
+
+        <div class="btn-transactions-group">
+            <button onclick="addIncome()"> Add Income!</button>
+        </div>
+    </div>
+
+
+<!-- Expenses -->
+    <div class = "expense section">
+        <h2> Monthly Expenses</h2>
+
+        <div class="expense input-group">
+            <label for="expense-description">Description: </label>
+            <input type="text" id="expense-description" type= "text" placeholder="e.g. Groceries."> <!--Expense Description-->
+        </div>
+
+        <div class="expense input-group"> <!--Add more based on my needs/wants-->
+            <label for= "expense-type"> Expense Type: </label> <!--Expense Categories-->
+            <select id = "expense-type">
+                <option value="Housing"> Housing</option>
+                <option value="Food"> Food</option>
+                <option value="Transportation"> Transportation</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other"> Other</option>
+            </select>
+        </div>
+
+        <div class="expense input-group">
+            <label for="expense-amount">Amount ($): </label>
+            <input type="number" id="expense-amount" placeholder="e.g. 10000">  <!--Income Amount, edge case-->
+        </div>
+
+        <div class="btn-transactions-group">
+            <button onclick="addExpense()"> Add Expenses! </button>
+        </div>  
+    </div>
+ </div>
+ 
+<!-- Logs the transactions inputed by the user-->
+<div class = "budget-tble-container">
+     <table>
+        <thead>
+            <tr>
+                <th> Description </th>
+                <th> Category</th>
+                <th> Amount ($)</th>
+                <th> Type </th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody class="transaction-history">
+            <!-- Inputs will be shown here-->
+        </tbody>
+    </table> 
+</div>
+
+ 
+<!-- Shows total income, expenses, and budget to the user-->
+<div class="budget summary">
+    <h2> Summary </h2>
+    <p> Total Income: $ <span id="total-income"> </span></p>
+    <p> Total Expenses: $ <span id="total-expenses"> </span></p>
+    <p> Total Budget: $ <span id="total-budget"> </span></p>
+</div>
+
+<!-- Clear Button If one needs to clear their transactions for the month-->
+<div class="btn-clear">
+    <button onclick="clearAll()">Clear All</button>
+</div>
+
+
+<script src="tracker-final.js"></script>
+</body>
+</html>
