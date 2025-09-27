@@ -1,8 +1,4 @@
 # Budget-Tracker
-# Nia Manning
-    - August 10th, 2025
-    - Guided Inquiry 9.
-
 
 This app helps you track income and expenses and see your budget for the month in real time.
 
@@ -39,3 +35,6 @@ Validation and Errors
 - If the user puts in valid inputs, you'll see an alert and the entry won't be added.
 
 
+👩🏾‍💻 Author
+
+Created by Nia Manning for RoadToHire
